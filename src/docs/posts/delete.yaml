@@ -1,0 +1,19 @@
+Delete post
+---
+tags:
+  - Posts
+security:
+  - bearerAuth: [] # Applies 'bearerAuth' only to this DELETE operation
+parameters:
+  - in: path
+    name: postId
+    schema:
+      type: integer
+    required: true
+    description: Numeric ID of the post to delete
+responses:
+  200:
+    description: Post deleted
+
+  401:
+    description: Fails to delete post due to authentication error
