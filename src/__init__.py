@@ -46,7 +46,7 @@ def create_app(test_config=None):
 
     @app.get("/")
     def health_check():
-        return jsonify({"message": "It's working"})
+        return jsonify({"message": "It's working"}), 200
     
     @app.errorhandler(HTTP_404_NOT_FOUND)
     def page_not_found(error):
