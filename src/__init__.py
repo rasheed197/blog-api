@@ -44,6 +44,10 @@ def create_app(test_config=None):
 
     Swagger(app, config=swagger_config, template=template)
 
+    @app.get("/")
+    def health_check():
+        return jsonify({"message": "It's working"})
+    
     @app.errorhandler(HTTP_404_NOT_FOUND)
     def page_not_found(error):
         return jsonify({"error": "Not found"}), HTTP_404_NOT_FOUND
